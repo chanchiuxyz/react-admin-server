@@ -43,7 +43,7 @@ mongoose.connect('mongodb://localhost/server_db2')
     })
   })
   .catch(error => {
-    console.error('connection err to DB', error)
+    console.error('connection  err to DB', error)
   })
 
 
