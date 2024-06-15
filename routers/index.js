@@ -89,8 +89,8 @@ router.post('/manage/category/modify', (req, res) => {
       res.send({status: 0})
     })
     .catch(error => {
-      console.error('获取分类列表异常', error)
-      res.send({status: 1, msg: '获取分类列表异常, try again'})
+      console.error('modify category error', error)
+      res.send({status: 1, msg: 'modify category error, try again'})
     })
 })
 
