@@ -83,7 +83,7 @@ router.get('/manage/category/list', (req, res) => {
 // modify category
 router.post('/manage/category/modify', (req, res) => {
   console.log('category:',req.body)
-  const {categoryName, parentId} = req.body
+  const {categoryName, categoryId} = req.body
   CategoryModel.findOneAndUpdate({_id: categoryId}, {name: categoryName})
     .then(oldCategory => {
       res.send({status: 0})
