@@ -74,11 +74,25 @@ router.get('/manage/category/list', (req, res) => {
       res.send({status: 0, data: categorys})
     })
     .catch(error => {
-      console.error('获取分类列表异常', error)
-      res.send({status: 1, msg: '获取分类列表异常, 请重新尝试'})
+      console.error('get category err', error)
+      res.send({status: 1, msg: 'get category err, try again'})
     })
 })
 
+
+// modify category
+router.post('/manage/category/modify', (req, res) => {
+  console.log('category:',req.body)
+  const {categoryName, parentId} = req.body
+  CategoryModel.findOneAndUpdate({_id: categoryId}, {name: categoryName})
+    .then(oldCategory => {
+      res.send({status: 0})
+    })
+    .catch(error => {
+      console.error('获取分类列表异常', error)
+      res.send({status: 1, msg: '获取分类列表异常, try again'})
+    })
+})
 
 /*
 divide pages

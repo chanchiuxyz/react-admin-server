@@ -38,7 +38,7 @@
       }
 
 
-## 7. add category
+##  add category
 ### reqURL：
     http://localhost:5000/manage/category/add
 
@@ -72,7 +72,7 @@
             "__v": 0
           }
         }      
-获取一级或某个二级分类列表
+
 get category I or category II
 ### reqURL：
 	http://localhost:5000/manage/category/list
@@ -123,5 +123,22 @@ get category I or category II
       }
   
       
+## modify category
+### reqURL：
+    http://localhost:5000/manage/category/modify
+
+### method:
+    POST
+
+### parameter:
+
+    |parameter		|required |type     |memo
+    |categoryId    |Y       |string   |_id
+    |categoryName  |Y       |string   |name
+
+### response：
+    {
+      "status": 0
+    }
 
           
