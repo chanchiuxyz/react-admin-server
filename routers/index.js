@@ -7,7 +7,7 @@ const md5 = require('blueimp-md5')
 // MongoDB model
 const UserModel = require('../models/UserModel')
 const CategoryModel = require('../models/CategoryModel')
-// const ProductModel = require('../models/ProductModel')
+const ProductModel = require('../models/ProductModel')
 // const RoleModel = require('../models/RoleModel')
 
 
@@ -94,6 +94,18 @@ router.post('/manage/category/modify', (req, res) => {
     })
 })
 
+// add merchandise
+router.post('/manage/merchandise/add', (req, res) => {
+  const product = req.body
+  ProductModel.create(product)
+    .then(product => {
+      res.send({status: 0, data: product})
+    })
+    .catch(error => {
+      console.error('add merchandise', error)
+      res.send({status: 1, msg: 'add merchandise'})
+    })
+})
 /*
 divide pages
  */

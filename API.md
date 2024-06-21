@@ -141,4 +141,37 @@ get category I or category II
       "status": 0
     }
 
-          
+## 12. add merchandise
+### reqURL：
+    http://localhost:5000/manage/merchandise/add
+
+### method:
+    POST
+
+### parameter:
+    |parameter		 |required |type     |memo
+    |categoryId    |Y       |string   |categoryId
+    |pCategoryId   |Y       |string   |parentCategoryId
+    |name          |Y       |string   |name
+    |desc          |N       |string   |desc
+    |price         |N       |string   |price
+    |detail        |N       |string   |detail
+    |imgs          |N       |array    |imgs pics'name (json string)
+### response:
+    {
+        "status": 0,
+        "data": {
+            "status": 1,
+            "imgs": [
+                "image-XXXXXXX.jpg"
+            ],
+            "_id": "5cf394d29929a304dcc0c6eb",
+            "name": "mackBook",
+            "desc": "protable computer",
+            "price": 11111,
+            "detail": "<p><strong>abc</strong></p>\n",
+            "pCategoryId": "5ca9d6c0b49ef916541160bb",
+            "categoryId": "5ca9db78b49ef916541160ca",
+            "__v": 0
+        }
+    }
