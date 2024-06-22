@@ -12,8 +12,7 @@ const productSchema = new mongoose.Schema({
   price: {type: Number, required: true}, // price
   desc: {type: String},
   status: {type: Number, default: 1}, // status: 1:onSell, 2: Off shelf
-  imgs: {type: Array, default: []}, //imgs pics'name json string
-  detail: {type: String}
+  imgs: {type: Array, default: []} //imgs pics'name json string
 })
 
 

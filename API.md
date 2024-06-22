@@ -155,7 +155,6 @@ get category I or category II
     |name          |Y       |string   |name
     |desc          |N       |string   |desc
     |price         |N       |string   |price
-    |detail        |N       |string   |detail
     |imgs          |N       |array    |imgs pics'name (json string)
 ### response:
     {
@@ -169,7 +168,6 @@ get category I or category II
             "name": "mackBook",
             "desc": "protable computer",
             "price": 11111,
-            "detail": "<p><strong>abc</strong></p>\n",
             "pCategoryId": "5ca9d6c0b49ef916541160bb",
             "categoryId": "5ca9db78b49ef916541160ca",
             "__v": 0

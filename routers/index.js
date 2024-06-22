@@ -130,6 +130,6 @@ function pageFilter(arr, pageNum, pageSize) {
   }
 }
 
-
-
+// upload and delete pictures
+require('./file-upload')(router)
 module.exports = router
