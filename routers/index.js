@@ -96,14 +96,27 @@ router.post('/manage/category/modify', (req, res) => {
 
 // add merchandise
 router.post('/manage/merchandise/add', (req, res) => {
-  const product = req.body
-  ProductModel.create(product)
-    .then(product => {
-      res.send({status: 0, data: product})
+  const merchandise = req.body
+  ProductModel.create(merchandise)
+    .then(merchandise => {
+      res.send({status: 0, data: merchandise})
     })
     .catch(error => {
       console.error('add merchandise', error)
       res.send({status: 1, msg: 'add merchandise'})
+    })
+})
+
+// get merchandise
+router.get('/manage/merchandise/list', (req, res) => {
+  const {pageNum, pageSize} = req.query
+  ProductModel.find({})
+    .then(merchandise => {
+      res.send({status: 0, data: pageFilter(merchandise, pageNum, pageSize)})
+    })
+    .catch(error => {
+      console.error('merchandise list', error)
+      res.send({status: 1, msg: 'merchandise list error'})
     })
 })
 /*
