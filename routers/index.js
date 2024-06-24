@@ -78,6 +78,18 @@ router.get('/manage/category/list', (req, res) => {
       res.send({status: 1, msg: 'get category err, try again'})
     })
 })
+// get category name by category id
+router.get('/manage/category/name', (req, res) => {
+  const categoryId = req.query.categoryId
+  CategoryModel.findOne({_id: categoryId})
+    .then(category => {
+      res.send({status: 0, data: category.name})
+    })
+    .catch(error => {
+      console.error('get category name err', error)
+      res.send({status: 1, msg: 'get category name err'})
+    })
+})
 
 
 // modify category

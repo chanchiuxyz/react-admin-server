@@ -121,6 +121,24 @@ get category I or category II
           }
         ]
       }
+
+
+## get category name by category id
+### reqURL：
+	http://localhost:5000/manage/category/name
+
+### method：
+	GET
+
+### parameter 
+	|parameter		|required |type     |memo
+	|_id           |Y       |string   |category id
+
+### response：：
+{
+    "status": 0,
+    "data": "category name"
+}
   
       
 ## modify category
@@ -141,7 +159,7 @@ get category I or category II
       "status": 0
     }
 
-## 12. add merchandise
+##  add merchandise
 ### reqURL：
     http://localhost:5000/manage/merchandise/add
 
@@ -173,3 +191,75 @@ get category I or category II
             "__v": 0
         }
     }
+
+##  get merchandise
+### reqURL：
+    http://localhost:5000/manage/product/list
+
+### method:
+    GET
+
+### parameter:
+
+    |parameter|isRequired |type     |memo
+    |pageNum    |Y       |Number   |page number
+    |pageSize   |Y       |Number   |page size
+
+### response：
+   {
+    "status": 0,
+    "data": {
+        "pageNum": 1,
+        "total": 4,
+        "pages": 2,
+        "pageSize": 3,
+        "list": [
+            {
+                "_id": "6676914f39127af25914c605",
+                "categoryId": "666b724eadbd9012cce163b9",
+                "pCategoryId": "666b724eadbd9012cce163b9",
+                "name": "MacBook Air 13-inch Laptop",
+                "price": 1449.99,
+                "desc": "Apple 2024 MacBook Air 13-inch Laptop with M3 chip: 13.6-inch Liquid Retina Display, 8GB Unified Memory, 256GB SSD Storage, 1080p FaceTime HD Camera, Touch ID; Midnight, English Backlit Keyboard",
+                "status": 1,
+                "imgs": [
+                    "image-1719046456633.jpg",
+                    "image-1719046463497.jpg",
+                    "image-1719046466173.jpg",
+                    "image-1719046470018.jpg"
+                ],
+                "__v": 0
+            },
+            {
+                "_id": "6677e6a18be3563fcfe1a456",
+                "categoryId": "666b724eadbd9012cce163b9",
+                "pCategoryId": "666b724eadbd9012cce163b9",
+                "name": "ASUS Vivobook 15 Laptop",
+                "price": 1099,
+                "desc": "15.6” FHD (1920 x 1080) Display, Intel Core i7-1355U CPU, Intel Iris Xᵉ Graphics, 16GB RAM, 1TB SSD, Windows 11 Home, Quiet Blue, X1504VA-AS71-CA",
+                "status": 1,
+                "imgs": [
+                    "image-1719133841189.jpg",
+                    "image-1719133845502.jpg",
+                    "image-1719133852504.jpg"
+                ],
+                "__v": 0
+            },
+            {
+                "_id": "6678c09d8be3563fcfe1a478",
+                "categoryId": "666b724eadbd9012cce163b9",
+                "pCategoryId": "666b724eadbd9012cce163b9",
+                "name": "HP 15.6\" FHD Business Laptop",
+                "price": 849,
+                "desc": "Intel Core i5-1135G7, 32GB DDR4 RAM, 1TB PCIe SSD, Intel Iris Xe Graphics, Numpad, Webcam, Wi-Fi 5, Bluetooth, Silver, Win 11 Pro, 32GB Hotface USB Card",
+                "status": 1,
+                "imgs": [
+                    "image-1719189650206.jpg",
+                    "image-1719189654371.jpg",
+                    "image-1719189658283.jpg"
+                ],
+                "__v": 0
+            }
+        ]
+    }
+}
