@@ -131,6 +131,48 @@ router.get('/manage/merchandise/list', (req, res) => {
       res.send({status: 1, msg: 'merchandise list error'})
     })
 })
+
+
+// add role
+router.post('/manage/role/add', (req, res) => {
+  const {roleName} = req.body
+  RoleModel.create({name: roleName})
+    .then(role => {
+      res.send({status: 0, data: role})
+    })
+    .catch(error => {
+      console.error('add role error', error)
+      res.send({status: 1, msg: 'add role error'})
+    })
+})
+
+// get roles
+router.get('/manage/role/list', (req, res) => {
+  RoleModel.find()
+    .then(roles => {
+      res.send({status: 0, data: roles})
+    })
+    .catch(error => {
+      console.error('get roles error', error)
+      res.send({status: 1, msg: 'get roles error'})
+    })
+})
+
+// update role 
+router.post('/manage/role/update', (req, res) => {
+  const role = req.body
+  role.auth_time = Date.now()
+  RoleModel.findOneAndUpdate({_id: role._id}, role)
+    .then(oldRole => {
+      // console.log('---', oldRole._doc)
+      res.send({status: 0, data: {...oldRole._doc, ...role}})
+    })
+    .catch(error => {
+      console.error('update role error', error)
+      res.send({status: 1, msg: 'update role error'})
+    })
+})
+
 /*
 divide pages
  */
