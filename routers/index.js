@@ -8,7 +8,7 @@ const md5 = require('blueimp-md5')
 const UserModel = require('../models/UserModel')
 const CategoryModel = require('../models/CategoryModel')
 const ProductModel = require('../models/ProductModel')
-// const RoleModel = require('../models/RoleModel')
+const RoleModel = require('../models/RoleModel')
 
 
 // router
@@ -134,8 +134,9 @@ router.get('/manage/merchandise/list', (req, res) => {
 
 
 // add role
-router.post('/manage/role/add', (req, res) => {
+router.post('/manage/role/create', (req, res) => {
   const {roleName} = req.body
+  console.log(req.body)
   RoleModel.create({name: roleName})
     .then(role => {
       res.send({status: 0, data: role})

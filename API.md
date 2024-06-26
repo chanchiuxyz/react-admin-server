@@ -268,7 +268,7 @@ get category I or category II
 ## add user
 
 ### reqURL：
-    http://localhost:5000/manage/role/add
+    http://localhost:5000/manage/role/create
 
 ### method:
     POST
