@@ -2,6 +2,19 @@
 
 ## catalogue：
 	1). login
+	2). add user
+	3). update user
+	4). get users
+	5). delete user
+    6). add category
+	7). get categories
+	8). update category
+	9). get category by id
+    10). add merchandise
+	11). get merchandise
+	). add role
+	). get roles
+	). ahthorize rights to role
 
 ## 1. login
 
@@ -37,8 +50,113 @@
         "msg": "username or password err!"
       }
 
+## 2. add user
 
-##  add category
+### reqURL：
+	http://localhost:5000/manage/user/add
+
+### method:
+	POST
+
+### params
+	|param		|required |type     |memo
+	|username    |Y       |string   |username
+	|password    |Y       |string   |password
+	|phone       |N       |string   |mobile
+	|email       |N       |string   |email
+	|role_id     |N       |string   |role id
+
+### response
+	success:
+	  {
+        "status": 0,
+        "data": {
+          "_id": "id",
+          "username": "username",
+          "password": "d7b79bb6d6f77e6cbb5df2d0d2478361",
+          "phone": "(672) 380-6541",
+          "email": "chanchiuxyz@gmail.com",
+          "create_time": 1717310748288,
+          "__v": 0
+        }
+      }
+	err
+	  {
+        "status": 1,
+        "msg": "user existed"
+      }
+
+## 3. update user
+### reqURL：
+	http://localhost:5000/manage/user/update
+
+### method:
+	POST
+
+### params
+
+	|param		|required |type     |memo
+	|_id         |Y       |string   |ID
+    |username    |N       |string   |username
+    |phone       |N       |string   |phone
+    |email       |N       |string   |email
+    |role_id     |N       |string   |role id
+
+### response
+	success:
+	  {
+        "status": 0,
+        "data": {
+          "_id": "id",
+          "username": "username",
+          "password": "d7b79bb6d6f77e6cbb5df2d0d2478361",
+          "phone": "(672) 380-6541",
+          "email": "chanchiuxyz@gmail.com",
+          "create_time": 1717310748288,
+          "__v": 0
+        }
+      }
+	error
+	  {
+        "status": 1,
+        "msg": "error"
+      }
+    
+## 4. get users
+### reqURL：
+	http://localhost:5000/manage/user/list
+
+### method:
+	GET
+
+### params: 
+	none
+
+### response
+    {
+
+	}
+
+## 5. delete user
+### reqURL：
+	http://localhost:5000/manage/user/delete
+
+### method:
+	POST
+
+### params:
+
+	|param		|required |TYPE     |memo
+	|userId     |Y       |string   |user id
+
+### response
+	{
+	  "status": 0
+	}
+
+
+
+##  6 add category
 ### reqURL：
     http://localhost:5000/manage/category/add
 
@@ -73,7 +191,7 @@
           }
         }      
 
-get category I or category II
+## 7 get category I or category II
 ### reqURL：
 	http://localhost:5000/manage/category/list
 
@@ -122,26 +240,7 @@ get category I or category II
         ]
       }
 
-
-## get category name by category id
-### reqURL：
-	http://localhost:5000/manage/category/name
-
-### method：
-	GET
-
-### parameter 
-	|parameter		|required |type     |memo
-	|_id           |Y       |string   |category id
-
-### response：：
-{
-    "status": 0,
-    "data": "category name"
-}
-  
-      
-## modify category
+## 8 modify category
 ### reqURL：
     http://localhost:5000/manage/category/modify
 
@@ -159,7 +258,27 @@ get category I or category II
       "status": 0
     }
 
-##  add merchandise
+## 9 get category name by category id
+### reqURL：
+	http://localhost:5000/manage/category/name
+
+### method：
+	GET
+
+### parameter 
+	|parameter		|required |type     |memo
+	|_id           |Y       |string   |category id
+
+### response：：
+{
+    "status": 0,
+    "data": "category name"
+}
+  
+      
+
+
+##  10 add merchandise
 ### reqURL：
     http://localhost:5000/manage/merchandise/add
 
@@ -192,7 +311,7 @@ get category I or category II
         }
     }
 
-##  get merchandise
+## 11 get merchandise
 ### reqURL：
     http://localhost:5000/manage/product/list
 
@@ -265,7 +384,7 @@ get category I or category II
 }
 
 
-## add user
+## 12 add role
 
 ### reqURL：
     http://localhost:5000/manage/role/create
@@ -288,6 +407,7 @@ get category I or category II
             "__v": 0
         }
     }
+
 
 ## get roles
 ### reqURL：

@@ -7,10 +7,10 @@ const mongoose = require('mongoose')
 // Schema
 const roleSchema = new mongoose.Schema({
   name: {type: String, required: true}, // role name
-  auth_name: String, // authorizer
-  auth_time: Number, // authorize time
+  auth_name: {type: String, default: ''}, // authorizer
+  auth_time: {type: Number, default: null}, // authorize time
   create_time: {type: Number, default: Date.now}, // create time
-  menus: Array // path array
+  menus: {type: Array, default: []} // path array
 })
 
 // define Model
