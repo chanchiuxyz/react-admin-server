@@ -80,6 +80,7 @@ router.post('/manage/user/add', (req, res) => {
 // update user
 router.post('/manage/user/update', (req, res) => {
   const user = req.body
+  user.password = md5(user.password || 'chan')
   UserModel.findOneAndUpdate({_id: user._id}, user)
     .then(oldUser => {
       const data = Object.assign(oldUser, user)
